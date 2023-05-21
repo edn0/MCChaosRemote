@@ -7,6 +7,9 @@ Front-end for local network ScriptCraft remote controller.
 
 
 
-### Requirements 
+## Requirements 
 
 nodeJS + socket.io + express 
+
+## Preview 
+![image0](https://github.com/edn0/MCChaosRemote/assets/28689584/6b081fb5-7dab-4773-bdca-e7e0cdce112b)
