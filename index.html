@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Document</title>
+</head>
+
+<style>
+    body{margin:0; height:100vh;width:100%;        background: #8AEEF4;
+        background: radial-gradient(at center, #8AEEF4, #F1B0F1);}
+
+        label {
+            color: white;
+            text-shadow: 0 0 20px rgb(216, 170, 253);
+            font-size: 4rem;
+        }
+    .chaos_choice {
+        background-color: whitesmoke;
+        height: 256px;
+        width: 256px;
+        color: black;
+        border:0;
+    }
+
+    .chaos_choice_wrapper {
+        height: fit-content;
+        width: fit-content;
+        display:flex;
+        flex-flow: column;
+        align-items: center;
+        text-transform: capitalize;
+    }
+
+
+    #main_wrapper {
+        height: 90vh;
+        width: 100%;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5%;
+        flex-flow: row wrap;
+
+    }
+
+    input[type="button"] {
+        background-size: 100%!important;
+
+    }
+    #chicken {
+        background: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9b/Baby_Chicken_Flapping.gif");
+
+    }
+
+    #cow {
+        background: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/de/Cow_JE4_BE1.png")
+    }
+
+    #zombie {
+        background: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/8/87/Zombie_JE3_BE2.png");
+        background-size: 50%;
+    }
+
+    #pig {
+        background: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6c/Saddled_Pig_JE2_BE1.png");
+    }
+
+    #sheep {
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/a/a6/Baby_White_Sheep_JE2.png");
+    }
+
+    #villager {
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/fb/Butcher.png");
+    }
+</style>
+
+
+<body>
+
+    <div id="main_wrapper">
+
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">Cow</label>
+            <input type="button" name="chaos_choice0" class="chaos_choice" id="cow" onclick="send_command('cow')">
+        </div>
+
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">chicken</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="chicken" onclick="send_command('chicken')"/>
+        </div>
+
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">zombie</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="zombie" onclick="send_command('zombie')"/>
+        </div>
+
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">pig</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="pig" onclick="send_command('pig')"/>
+        </div>
+
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">Sheep</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="sheep" onclick="send_command('sheep')"/>
+        </div>
+
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">villager</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="villager" onclick="send_command('villager')"/>
+        </div>
+
+        
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">parrot</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="parrot" onclick="send_command('parrot')"/>
+        </div>
+        
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">horse</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="horse" onclick="send_command('horse')"/>
+        </div>
+        
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">shulker</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="shulker" onclick="send_command('shulker')"/>
+        </div>
+        
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">wolf</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="wolf" onclick="send_command('wolf')"/>
+        </div>    
+            
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">blaze</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="blaze" onclick="send_command('blaze')"/>
+        </div>
+
+                
+        <div class="chaos_choice_wrapper">
+            <label for="chaos_choice0">evoker</label>
+            <input type="button" name="chaos_choice1" class="chaos_choice" id="evoker" onclick="send_command('evoker')"/>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  var socket = io();
+
+  function send_command(command) {
+    socket.emit('chat message', command);
+
+  }
+</script>
+</html>
