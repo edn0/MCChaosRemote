@@ -8,14 +8,20 @@
 </head>
 
 <style>
-    body{margin:0; height:100vh;width:90%;        background: #8AEEF4;
-        background: radial-gradient(at center, #8AEEF4, #F1B0F1);        font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+    body{
+        margin:0;
+        height:100vh;
+        width:100%;
+    
+        background-color: #000;        
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
 
         label {
             color: white;
             text-shadow: 0 0 20px rgb(216, 170, 253);
             font-size: 2.6rem;
+            z-index: 2;
         }
 
     .chaos_choice {
@@ -29,7 +35,7 @@
         border:0;
         transition: 600ms ease-in-out;
         border-radius: 50%;
-
+        z-index: 2;
     }
 
     .chaos_choice_wrapper {
@@ -39,18 +45,27 @@
         flex-flow: column;
         align-items: center;
         text-transform: capitalize;
+        margin: 6px;
+        padding: 12px;
+                /* From https://css.glass */
+        background: rgba(244, 155, 251, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(244, 155, 251, 0.3);
     }
 
 
     #main_wrapper {
         height: 90vh;
-        width: 100%;
+        width: 97vw;
         display:flex;
         align-items: center;
         justify-content: space-between;
-        padding: 5%;
+        padding: 1.5%;
         flex-flow: row wrap;
-
+        z-index: 2;
     }
 
     #chicken {
@@ -107,6 +122,29 @@
         animation: clicked .75s ease-in-out forwards;
     }
 
+    #bg {
+        background: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pcgamesn.com%2Fwp-content%2Fuploads%2Fweb-stories-assets%2Fassets%2Fminecraft-pack-png-seed-discovered%2Fog-image.jpg");
+        filter:blur(10px);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+            background-repeat: no-repeat;
+        background-size: 350%;
+        /*animation: scroll_bg 300s infinite;*/
+    
+    }
+
+
+    @keyframes scroll_bg {
+        0%{
+            background-position: left;
+        }
+        50% {
+            background-position: right;
+        }
+    }
+
+
     @keyframes clicked {
         50% {
             transform: rotate(180deg) scale(-1);
@@ -120,6 +158,7 @@
 
 <body>
 
+    <div id="bg"></div>
     <div id="main_wrapper">
 
         <div class="chaos_choice_wrapper">
@@ -185,6 +224,7 @@
         </div>
 
     </div>
+    
 
 </body>
 
