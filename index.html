@@ -8,20 +8,26 @@
 </head>
 
 <style>
-    body{margin:0; height:100vh;width:100%;        background: #8AEEF4;
-        background: radial-gradient(at center, #8AEEF4, #F1B0F1);}
+    body{margin:0; height:100vh;width:90%;        background: #8AEEF4;
+        background: radial-gradient(at center, #8AEEF4, #F1B0F1);        font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
         label {
             color: white;
             text-shadow: 0 0 20px rgb(216, 170, 253);
-            font-size: 4rem;
+            font-size: 2.6rem;
         }
+
     .chaos_choice {
         background-color: whitesmoke;
+        background-position: center!important;
+        background-repeat: no-repeat!important;
+        background-size: auto;
         height: 256px;
         width: 256px;
         color: black;
         border:0;
+        transition: 300ms ease-in-out;
     }
 
     .chaos_choice_wrapper {
@@ -45,10 +51,6 @@
 
     }
 
-    input[type="button"] {
-        background-size: 100%!important;
-
-    }
     #chicken {
         background: url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9b/Baby_Chicken_Flapping.gif");
 
@@ -73,6 +75,34 @@
 
     #villager {
         background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/fb/Butcher.png");
+        background-size: 50%;
+    }
+
+    #parrot {
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/de/Red_Parrot.png")
+    }
+
+    #horse {
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/8/86/White_Horse.png");
+    }
+
+    #shulker{
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/06/Shulker.png")
+    }
+
+    #wolf{
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/c/c4/Wolf_JE2_BE2.png")
+    }
+    #blaze{
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Blaze.gif")
+    }
+    #evoker{
+        background:url("https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2d/Evoker_Summoning_Vexes.png")
+    }
+
+    .glow {
+        box-shadow: 0 0 20px 20px #fff;
+        border-radius: 50%;
     }
 </style>
 
@@ -83,7 +113,7 @@
 
         <div class="chaos_choice_wrapper">
             <label for="chaos_choice0">Cow</label>
-            <input type="button" name="chaos_choice0" class="chaos_choice" id="cow" onclick="send_command('cow')">
+            <input type="button" name="chaos_choice0" class="chaos_choice" id="cow" onclick="send_command('cow')"/>
         </div>
 
         <div class="chaos_choice_wrapper">
@@ -153,8 +183,15 @@
   var socket = io();
 
   function send_command(command) {
+    
+    document.querySelector(`#${command}`).classList.add("glow");
+
     socket.emit('chat message', command);
 
+
+    setTimeout(() => {
+        document.querySelector(`#${command}`).classList.remove("glow")
+    }, 300);
   }
 </script>
 </html>
