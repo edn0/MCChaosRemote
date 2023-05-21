@@ -8,7 +8,7 @@ Front-end for local network ScriptCraft remote controller.
 
 
 ## Requirements 
-
+ScriptCraft (last release added support for 1.12, I work on 1.8)
 nodeJS + socket.io + express 
 
 ## Preview 
