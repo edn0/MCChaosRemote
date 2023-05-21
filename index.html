@@ -27,7 +27,9 @@
         width: 256px;
         color: black;
         border:0;
-        transition: 300ms ease-in-out;
+        transition: 600ms ease-in-out;
+        border-radius: 50%;
+
     }
 
     .chaos_choice_wrapper {
@@ -101,8 +103,17 @@
     }
 
     .glow {
-        box-shadow: 0 0 20px 20px #fff;
-        border-radius: 50%;
+        box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.416);
+        animation: clicked .75s ease-in-out forwards;
+    }
+
+    @keyframes clicked {
+        50% {
+            transform: rotate(180deg) scale(-1);
+        }
+            100% {
+            transform: rotate(180deg) scale(-1  );
+        }
     }
 </style>
 
@@ -191,7 +202,7 @@
 
     setTimeout(() => {
         document.querySelector(`#${command}`).classList.remove("glow")
-    }, 300);
+    }, 500);
   }
 </script>
 </html>
