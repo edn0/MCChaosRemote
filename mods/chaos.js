@@ -17,6 +17,11 @@ function check_for_chaos() {
 
     var chaos_commands = scload("T:/spigotmc/scriptcraft/plugins/poot.json")
 
+    // for (cmd in chaos_commands) {
+    // let command = chaos_commands[cmd]
+    //  server.consoleSender.sendMessage(command)
+      // spawn(command.type, players[0].location.add(command.x, command.y,0)
+ //     }
 
     server.consoleSender.sendMessage(chaos_commands.id + "/" + previous_id)
     if (chaos_commands.id!==previous_id) {
